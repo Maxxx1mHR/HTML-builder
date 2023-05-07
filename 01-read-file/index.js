@@ -4,8 +4,8 @@ const path = require('path');
 const { stdout } = process;
 
 let readableStream = fs.createReadStream(path.resolve(__dirname, 'text.txt'), 'utf8');
-readableStream.on('data', chuck => {
-  stdout.write(chuck);
+readableStream.on('data', chunk => {
+  stdout.write(chunk);
 });
 
 

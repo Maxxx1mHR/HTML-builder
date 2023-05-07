@@ -8,8 +8,8 @@ fs.readdir(path.resolve(__dirname, 'styles'), { withFileTypes: true }, (error, f
     if (file.isFile() && path.extname(file.name) === '.css') {
       let readableStream = fs.createReadStream(path.resolve(__dirname, 'styles', file.name), 'utf-8');
       let writeableStream = fs.createWriteStream(path.resolve(__dirname, 'project-dist', 'bundle.css'));
-      readableStream.on('data', chuck => {
-        arrStyle.push(chuck);
+      readableStream.on('data', chunk => {
+        arrStyle.push(chunk);
         writeableStream.write(arrStyle.join('\n'));
       });
     }
