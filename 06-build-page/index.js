@@ -22,10 +22,10 @@ readableStream.on('data', chunk => {
       readableStream.on('data', chunk => {
         template = template.split(`{{${file.name.split('.')[0]}}}`).join(chunk);
         writeableStream.write(template);
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});
 
 fs.readdir(path.resolve(__dirname, 'styles'), { withFileTypes: true }, (error, files) => {
   if (error) throw error;
@@ -37,10 +37,10 @@ fs.readdir(path.resolve(__dirname, 'styles'), { withFileTypes: true }, (error, f
       readableStream.on('data', chuck => {
         arrStyle.push(chuck);
         writeableStream.write(arrStyle.join('\n'));
-      })
+      });
     }
-  })
-})
+  });
+});
 
 function createFolder(point) {
   fs.mkdir(path.resolve(__dirname, 'project-dist', point), { recursive: true }, error => {
@@ -60,10 +60,10 @@ function copyAssets(folder) {
         let writeableStream = fs.createWriteStream(path.resolve(__dirname, 'project-dist', folder + '/' + file.name));
         readableStream.on('data', chunk => {
           writeableStream.write(chunk);
-        })
+        });
       }
-    })
-  })
+    });
+  });
 }
 
 copyAssets('assets');

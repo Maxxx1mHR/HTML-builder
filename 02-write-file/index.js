@@ -9,7 +9,7 @@ stdout.write('Дружище, как я рад тебя видеть! Напиш
 process.on('SIGINT', () => {
   stdout.write('Ну ты это, заходи если что!\n');
   process.exit();
-})
+});
 
 stdin.on('data', data => {
   if (data.toString().trim() === 'exit') {
@@ -18,4 +18,4 @@ stdin.on('data', data => {
   } else {
     writeableStream.write(data);
   }
-})
+});

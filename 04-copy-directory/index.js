@@ -13,11 +13,11 @@ fs.readdir(path.resolve(__dirname, 'files-copy'), (error, files) => {
   } else {
     files.forEach(file => {
       fs.unlink(path.resolve(__dirname, 'files-copy', file), error => {
-        if (error) throw error
-      })
-    })
+        if (error) throw error;
+      });
+    });
   }
-})
+});
 
 fs.readdir(path.resolve(__dirname, 'files'), (error, files) => {
   if (error) {
@@ -28,7 +28,7 @@ fs.readdir(path.resolve(__dirname, 'files'), (error, files) => {
         if (error) {
           console.log(error);
         }
-      })
-    })
+      });
+    });
   }
-})
+});

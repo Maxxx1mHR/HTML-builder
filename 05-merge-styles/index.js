@@ -11,7 +11,7 @@ fs.readdir(path.resolve(__dirname, 'styles'), { withFileTypes: true }, (error, f
       readableStream.on('data', chuck => {
         arrStyle.push(chuck);
         writeableStream.write(arrStyle.join('\n'));
-      })
+      });
     }
-  })
-})
+  });
+});
